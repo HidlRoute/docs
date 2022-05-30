@@ -1,6 +1,6 @@
 site_name: Hidl Route
 repo_url: https://github.com/HidlRoute/hidlroute-server
-
+copyright: Copyright &copy; 2022 HidlRoute
 theme:
   name: material
   logo: assets/images/logo-white-hor-small.svg
@@ -32,9 +32,18 @@ plugins:
   - git-revision-date:
       enabled_if_env: CI
 extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/HidlRoute/hidlroute-server
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:hidlroute-dev@googlegroups.com
   version:
     default: latest
     provider: mike
+  analytics:
+    provider: google
+    property: G-Y6Z53D0FCQ
 extra_css:
   - assets/styles/hidlroute.css
 markdown_extensions:

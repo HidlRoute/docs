@@ -18,5 +18,5 @@ Hidl Route is an open-source VPN management system.
 for you.
 
 1. Run `make deploy`, this will compile the site and push into the `gh-pages` branch
-2. Run `git push` to push this changes to the remote repo on github.
+2. Run `git push --all` to push this changes to the remote repo on github.
 

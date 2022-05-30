@@ -33,6 +33,14 @@ deploy:
        echo "DONE: deploy"; \
     )
 
+deploy-preview:
+	@( \
+       set -e; \
+       ./mike deploy $(VERSION) latest -b gh-preview; \
+       \
+       echo "DONE: deploy"; \
+    )
+
 serve:
 	@( echo "Site will be available at http://localhost:8325/"; ./mkdocs serve -a 0.0.0.0:8000; )
 
