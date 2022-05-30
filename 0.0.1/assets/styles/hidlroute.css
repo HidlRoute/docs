@@ -8,4 +8,20 @@
   --md-primary-fg-color:        #557389;
   --md-primary-fg-color--light: #557389;
   --md-primary-fg-color--dark:  #557389;
+  --md-default-bg-color:        #29292c;
+}
+
+
+/* Hide Edit page button */
+article.md-content__inner > a.md-content__button:nth-of-type(1) {
+  display: none;
+}
+
+/* Hide title in a top bar*/
+.md-header__title .md-header__topic:nth-of-type(1) > .md-ellipsis {
+  display: none;
+}
+
+.md-header__title .md-header__topic+.md-header__topic {
+  opacity: 1;
 }
