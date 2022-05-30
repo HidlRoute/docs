@@ -28,7 +28,7 @@ clean:
 deploy:
 	@( \
        set -e; \
-       ./mike deploy $(VERSION) latest; \
+       ./mike deploy $(VERSION) latest --no-redirect; \
        \
        echo "DONE: deploy"; \
     )
@@ -36,13 +36,17 @@ deploy:
 deploy-preview:
 	@( \
        set -e; \
-       ./mike deploy $(VERSION) latest -b gh-preview; \
+       ./mike deploy $(VERSION) -u latest --no-redirect -b gh-preview; \
        \
        echo "DONE: deploy"; \
     )
 
 serve:
 	@( echo "Site will be available at http://localhost:8325/"; ./mkdocs serve -a 0.0.0.0:8000; )
+
+serve-all:
+	@( echo "Site will be available at http://localhost:8325/"; ./mike serve -a 0.0.0.0:8000; )
+
 
 deps:
 	@( \

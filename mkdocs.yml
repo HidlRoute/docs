@@ -1,6 +1,8 @@
 site_name: Hidl Route
 repo_url: https://github.com/HidlRoute/hidlroute-server
-copyright: Copyright &copy; 2022 HidlRoute
+copyright: Copyright &copy; 2022 Dmitry Berezovsky, Alex Cherednichenko
+site_url: https://hidlroute.org/
+site_description: HidlRoute - an open-source VPN management system
 theme:
   name: material
   logo: assets/images/logo-white-hor-small.svg
@@ -59,6 +61,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.snippets
   - def_list
+  - meta
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.superfences:

@@ -1,4 +1,8 @@
-# Welcome to Hidl Route
+---
+title: Welcome to HidlRoute
+---
+
+<img src="assets/images/intro-banner.svg" align="center"/>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sagittis faucibus quam non ornare. Aenean pharetra
 elementum lectus eu aliquet. Nulla sed ullamcorper ligula. Phasellus luctus ultrices purus, ac pellentesque risus porta
