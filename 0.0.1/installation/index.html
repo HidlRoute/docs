@@ -320,6 +320,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bootstrapping-project" class="md-nav__link">
+    Bootstrapping project
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -499,6 +506,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bootstrapping-project" class="md-nav__link">
+    Bootstrapping project
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -527,6 +541,45 @@
 <h2 id="install-using-docker-recommended">Install using Docker (recommended)</h2>
 <h3 id="pre-requisites">Pre-requisites</h3>
 <p>TBD</p>
+<h3 id="bootstrapping-project">Bootstrapping project</h3>
+<p>Navigate to the directory where you'd like to keep the configuration and data files. <code>/opt</code> is recommended.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt
+</code></pre></div>
+<p>Download skeleton with for the recent stable version of HidlRoute</p>
+<div class="highlight"><pre><span></span><code>curl -fsSL https://get.hidlroute.org <span class="p">|</span> sudo bash
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>curl -fsSL https://get.hidlroute.org/latest/deploy-ubuntu.sh &gt; /tmp/hidl-deploy.sh <span class="o">&amp;&amp;</span> bash /tmp/hidl-deploy.sh
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">HIDL_SUPERUSER_LOGIN</span><span class="o">=</span><span class="s2">&quot;hidladmin&quot;</span>
+<span class="nb">export</span> <span class="nv">HIDL_SUPERUSER_EMAIL</span><span class="o">=</span><span class="s2">&quot;youremail@gmail.com&quot;</span>
+<span class="nb">export</span> <span class="nv">HIDL_SUPERUSER_PASSWORD</span><span class="o">=</span><span class="s2">&quot;f4sRYmuePo337JsaDZbx&quot;</span>
+<span class="nb">export</span> <span class="nv">PRIMARY_DOMAIN</span><span class="o">=</span><span class="s2">&quot;yourdomain.com&quot;</span>
+<span class="nb">export</span> <span class="nv">LETSENCRYPT_EMAIL</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HIDL_SUPERUSER_EMAIL</span><span class="s2">&quot;</span>
+curl -fsSL https://get.hidlroute.org/latest/deploy-ubuntu.sh &gt; /tmp/hidl-deploy.sh <span class="o">&amp;&amp;</span> bash /tmp/hidl-deploy.sh
+</code></pre></div>
+<p>Digital Ocean
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="c1">#cloud-config</span><span class="w"></span>
+<span class="nt">write_files</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/hidl-init.sh</span><span class="w"></span>
+<span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">700</span><span class="w"></span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"></span>
+<span class="w">    </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">      </span><span class="no">#!/bin/bash</span><span class="w"></span>
+
+<span class="w">      </span><span class="no">export HIDL_SUPERUSER_LOGIN=&quot;hidladmin&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="no">export HIDL_SUPERUSER_EMAIL=&quot;youremail@gmail.com&quot;     # CHANGE ME!!!</span><span class="w"></span>
+<span class="w">      </span><span class="no">export HIDL_SUPERUSER_PASSWORD=&quot;f4sRYmuePo337JsaDZbx&quot; # CHANGE ME!!!</span><span class="w"></span>
+<span class="w">      </span><span class="no">export PRIMARY_DOMAIN=&quot;$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)&quot;  # CHANGE ME!!!</span><span class="w"></span>
+<span class="w">      </span><span class="no">export LETSENCRYPT_EMAIL=&quot;$HIDL_SUPERUSER_EMAIL&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="no">set -e</span><span class="w"></span>
+<span class="w">      </span><span class="no">curl -fsSL https://get.hidlroute.org/latest/deploy-ubuntu.sh &gt; /tmp/hidl-deploy.sh &amp;&amp; bash /tmp/hidl-deploy.sh</span><span class="w"></span>
+
+<span class="w">      </span><span class="no">rm /tmp/hidl-init.sh</span><span class="w"></span>
+<span class="nt">runcmd</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/hidl-init.sh</span><span class="w"></span>
+</code></pre></div>
 
               
             </article>
