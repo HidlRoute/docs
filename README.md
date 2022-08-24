@@ -1,6 +1,6 @@
 # HidlRoute Documentation
 
-This repository consists the sources for the HidlRoute documentation published at https://hidlroute.org/.
+This repository contains the sources of the HidlRoute documentation published at https://hidlroute.org/.
 Hidl Route is an open-source VPN management system.
 
 ## Build instructions
